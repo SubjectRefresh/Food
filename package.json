@@ -1,0 +1,24 @@
+{
+  "name": "food",
+  "version": "0.0.1",
+  "description": "A recipe creation tool for the #ODISummit",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SubjectRefresh/Food.git"
+  },
+  "author": "SubjectRefresh",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SubjectRefresh/Food/issues"
+  },
+  "homepage": "https://github.com/SubjectRefresh/Food#readme",
+  "dependencies": {
+    "colors": "^1.1.2",
+    "express": "^4.13.3",
+    "socket.io": "^1.3.7"
+  }
+}
