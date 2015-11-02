@@ -6,7 +6,6 @@ try {
     var io = require("socket.io")(http);
     var express = require("express");
 
-    var io = require("socket.io")(http)
     app.use(require("express").static('public'));
 
     app.get("/", function(req, res) {
