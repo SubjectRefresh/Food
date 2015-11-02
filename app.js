@@ -9,7 +9,7 @@ try {
     app.use(require("express").static('public'));
 
     app.get("/", function(req, res) {
-        console.log("app.js      - " + "[Refresh] Sending homepage".blue);
+        console.log("app.js      - " + "[Refresh - Food] Sending homepage".blue);
         fs.readFile("pages/index.html", "utf-8", function(err, data) {
             res.send(data);
         });
