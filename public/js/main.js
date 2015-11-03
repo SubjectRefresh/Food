@@ -63,7 +63,7 @@ parseFoodChoices(data);
 
 function parseFoodChoices(choices) {
     for ( i=0; i<choices.length; i++ ) {
-        $.getJSON("https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20json%20where%20url%3D'https%3A%2F%2Fajax.googleapis.com%2Fajax%2Fservices%2Fsearch%2Fimages%3Fv%3D1.0%26q%3D" + encodeURIComponent("happy bear") + "'&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys", function(data) {
+        $.getJSON("https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20json%20where%20url%3D'https%3A%2F%2Fajax.googleapis.com%2Fajax%2Fservices%2Fsearch%2Fimages%3Fv%3D1.0%26q%3D" + encodeURIComponent("happy bear").replace(" ", "%20") + "'&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys", function(data) {
             console.log(data);
         });
     }
