@@ -1,6 +1,6 @@
   body {
     display: flex;
-    min-height: 100vh;
+    min-height: 120%;
     flex-direction: column;
   }
 
@@ -16,4 +16,4 @@ nav > .container > a.brand-logo > img {
 main {
     flex: 1 0 auto;
   }
-      
+
