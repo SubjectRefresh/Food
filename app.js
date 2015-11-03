@@ -35,15 +35,15 @@ function heartbeat() {
 
             });
 
-            socket.on("sendFood", function(packet) {
+            socket.on("getFood", function(packet) {
                 // Do Code
                 // packet = { food: "foodname", calories: 657 };
-                convert.getCalorie(packet.food, function() {
-
+                console.log("BRUH");
+                convert.getCalorie(packet.food, function(calorie) {
+                    socket.emit("recieveCalories", { calorie: calorie.calories.value });
                 });
 
                 // output = { exercise: { running: 1.5, cycling: 4.5, swimming: 6.5 }, alternative: { name: "foodname", url: "http://www.food.recipe" } }
-                socket.send(output);
             });
         });
 

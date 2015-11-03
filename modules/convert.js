@@ -22,7 +22,7 @@ module.exports = {
 	        for ( i=0; i<data.length; i++ ) {
 	                if ( data[i].name == "Energy") {
 	                        if ( data[i].unit == "kcal") {
-	                                energy = data[i];
+                                energy.push(data[i]);
 	                        }
 	                }
 	        }
