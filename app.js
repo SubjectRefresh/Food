@@ -8,6 +8,7 @@ function heartbeat() {
         var express = require("express");
 
         var convert = require("./modules/convert.js");
+        var calories = require("./modules/colories.js");
 
         var branch = "master";
 
@@ -29,9 +30,12 @@ function heartbeat() {
             socket.on("getFoodSuggestions", function(packet) {
                 // Do Code
                 // packet = { food: "foodname" };
+                convert.getNDB(packet.food, function(outputOne) {
+                    socket.emit("suggestions", { output: output });
+                });
 
                 // output = { foods: [{ food: "foodname", calories: 657 }, { ... }, { ... }] }
-                socket.send(output);
+
             });
 
             socket.on("sendFood", function(packet) {
