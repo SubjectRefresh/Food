@@ -1,6 +1,6 @@
   body {
     display: flex;
-    min-height: 120%;
+    min-height: 300px;
     flex-direction: column;
   }
 
