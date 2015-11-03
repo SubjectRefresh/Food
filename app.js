@@ -6,6 +6,8 @@ try {
     var io = require("socket.io")(http);
     var express = require("express");
 
+    var convert = require("./modules/convert.js");    
+
     var branch = "master";
 
     var git = require('git-rev');
@@ -16,6 +18,9 @@ try {
         console.log("app.js      - " + "[Refresh - Food] Sending homepage".blue);
         fs.readFile("pages/index.html", "utf-8", function(err, data) {
             res.send(data);
+        });
+        convert.convertKCalToRequriedSport(1200, function(data){
+            console.log(data);
         });
     });
 
@@ -80,7 +85,7 @@ try {
         });
     }
 
-	http.listen(3000, function() {
+	http.listen(3001, function() {
         console.log("app.js      - " + "[Refresh - Food] Running at ".green + "http://localhost:3001".blue);
     });
 } catch (e) {
