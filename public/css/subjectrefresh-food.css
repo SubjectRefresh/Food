@@ -1,8 +1,8 @@
-  body {
-    display: flex;
-    min-height: 300px;
-    flex-direction: column;
-  }
+footer {
+	position: absolute;
+	width: 100%;
+	bottom: 0;
+}
 
 nav {
 	background: #fff !important;
@@ -12,8 +12,3 @@ nav > .container > a.brand-logo > img {
     max-height: 64px;
     padding: 10px;
 }
-
-main {
-    flex: 1 0 auto;
-  }
-

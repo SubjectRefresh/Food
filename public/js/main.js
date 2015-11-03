@@ -1,22 +1,10 @@
-function toggleVis(id) {
-    style = document.getElementById(id).style.visibility;
-    // if (style == "") {
-    //     document.getElementById(id).style.visibility = "hidden";
-    // } else {
-    //     document.getElementById(id).style.visibility = "";
-    // }
-}
-
 $(document).ready(function() {
-    toggleVis("food");
-
     var socket = io();
     var gender;
     $('#gender').material_select();
 
     $("#go1").click(function() {
         console.log("Get Food was Called");
-        //toggleVis("food");
         socket.emit("getFoodSuggestions", { food: $("#food").val() });
         gender = $("#gender").val();
     });
