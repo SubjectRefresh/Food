@@ -22,14 +22,16 @@ module.exports = {
 	        for ( i=0; i<data.length; i++ ) {
 	                if ( data[i].name == "Energy") {
 	                        if ( data[i].unit == "kcal") {
+<<<<<<< HEAD
 	                                energy.push(data[i]);
+=======
+                                energy = data[i];
+>>>>>>> origin/master
 	                        }
 	                }
 	        }
-	        parsedEnergy['calories'] = [];
-	        parsedEnergy['calories']['value'] =  energy.value;
-	        parsedEnergy['calories']['measure'] = "100";
-	        callback(parsedEnergy);
+            console.log(energy['value']);
+            callback(energy['value']);
 	    });
 	},
 

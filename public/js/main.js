@@ -62,7 +62,16 @@ $(document).ready(function() {
     socket.on("suggestions", function(packet) {
         console.log(packet);
         for (i in packet.output) {
-            $("#foods").append('<option>')
+            $("#foods").append('<option value="' + packet.output[i][2] + '">' + packet.output[i][1] + "</option>");
         }
+        $("#foods").material_select();
+        $("#go1").off("click");
+        $("#go1").click(function() {
+            socket.emit("getFood", { food: $("#foods").val() });
+        });
+    });
+
+    socket.on("recieveCalories", function(packet) {
+        console.log(packet.calorie);
     });
 });
