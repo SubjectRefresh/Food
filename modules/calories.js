@@ -25,10 +25,8 @@ function getCalorie(ndb, callback) {
                         }
                 }
         }
-        parsedEnergy['calories'] = [];
-        parsedEnergy['calories']['value'] =  energy.value;
-        parsedEnergy['calories']['measure'] = "100";
-        callback(parsedEnergy);
+        console.log("calling back" + energy.value);
+        callback(energy.value);
     });
 }
  
