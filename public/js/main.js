@@ -29,7 +29,7 @@ $(document).ready(function() {
         $("#foods").material_select();
         $("#go1").off("click");
         $("#go1").click(function() {
-            socket.emit("getFood", { food: $("#foods").val() });
+            socket.emit("getFood", { food: $("#foods").val(), gender: $("#gender").val() });
         });
     });
 
