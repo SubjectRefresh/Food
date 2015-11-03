@@ -8,7 +8,7 @@ function heartbeat() {
         var express = require("express");
 
         var convert = require("./modules/convert.js");
-        var calories = require("./modules/colories.js");
+        //var calories = require("./modules/calories.js");
 
         var branch = "master";
 
@@ -21,9 +21,6 @@ function heartbeat() {
             fs.readFile("pages/index.html", "utf-8", function(err, data) {
                 res.send(data);
             });
-            convert.convertKCalToRequriedSport(1200, function(data){
-                console.log(data);
-            });
         });
 
         io.on("connection", function(socket) {
@@ -31,7 +28,7 @@ function heartbeat() {
                 // Do Code
                 // packet = { food: "foodname" };
                 convert.getNDB(packet.food, function(outputOne) {
-                    socket.emit("suggestions", { output: output });
+                    socket.emit("suggestions", { output: outputOne });
                 });
 
                 // output = { foods: [{ food: "foodname", calories: 657 }, { ... }, { ... }] }
@@ -41,6 +38,9 @@ function heartbeat() {
             socket.on("sendFood", function(packet) {
                 // Do Code
                 // packet = { food: "foodname", calories: 657 };
+                convert.getCalorie(packet.food, function() {
+
+                });
 
                 // output = { exercise: { running: 1.5, cycling: 4.5, swimming: 6.5 }, alternative: { name: "foodname", url: "http://www.food.recipe" } }
                 socket.send(output);

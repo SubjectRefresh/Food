@@ -1,3 +1,5 @@
+var request = require("request");
+
 module.exports = {
 	getNDB: function(currentSearch, callback){
 		request('http://api.nal.usda.gov/ndb/search/?format=json&q=' + currentSearch +  '&sort=n&max=25&offset=0&api_key=UqyGauU4aSQSifon8gyVK5riyMn5ubZinIHBOk5B', function (error, response, body) {
@@ -7,7 +9,7 @@ module.exports = {
 				for ( i=0; i<data.length; i++ ) {
 					niceData.push([data[i].group, data[i].name, data[i].ndbno]);
 				}
-				callback(JSON.stringify(niceData));
+				callback(niceData);
 			}
 		});
 	},
