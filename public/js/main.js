@@ -1,3 +1,4 @@
+/*
 var id = document.getElementById("data");
 var j = 0
 
@@ -32,3 +33,4 @@ $(window).scroll(function() {
 });
 
 loadMore();
+*/
