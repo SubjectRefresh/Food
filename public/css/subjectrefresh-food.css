@@ -1,7 +1,13 @@
-nav, footer {
+nav {
+	background: #fff !important;
+}
+
+
+footer {
 	background: rgb(139,194,73) !important;
 }
 
 nav > .container > a.brand-logo > img {
     max-height: 64px;
+    padding: 10px;
 }
