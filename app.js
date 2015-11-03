@@ -19,7 +19,7 @@ try {
         });
     });
 
-    app.get("/update-git", function(req, res){
+    app.post("/update-git", function(req, res){
         console.log("Reloading git repo");
         updateGit();
         res.send({message:"OK",code:200})
