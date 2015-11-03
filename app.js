@@ -19,6 +19,24 @@ try {
         });
     });
 
+    io.on("connection", function(socket) {
+        socket.on("getFoodSuggestions", function(packet) {
+            // Do Code
+            // packet = { food: "foodname" };
+
+            // output = { foods: [{ food: "foodname", calories: 657 }, { ... }, { ... }] }
+            socket.send(output);
+        });
+
+        socket.on("sendFood", function(packet) {
+            // Do Code
+            // packet = { food: "foodname", calories: 657 };
+
+            // output = { exercise: { running: 1.5, cycling: 4.5, swimming: 6.5 }, alternative: { name: "foodname", url: "http://www.food.recipe" } }
+            socket.send(output);
+        });
+    });
+
     app.post("/update-git", function(req, res){
         console.log("Reloading git repo");
         updateGit();
