@@ -45,3 +45,29 @@ function toggleVis(id) {
 }
 
 toggleVis("food");
+
+function getFood(){
+    console.log("Get Food was Called");
+    toggleVis("food");
+
+}
+
+$(document).ready(function() {
+    $('select').material_select();
+});
+
+var tempData = '[["Restaurant Foods","APPLEBEE\'S, KRAFT, Macaroni & Cheese, from kid\'s menu","36003"],["Baked Products","AUSTIN, Cheddar Cheese on Cheese Crackers, sandwich-type","18984"],["Baked Products","AUSTIN, Cheddar Cheese on Cheese Crackers, sandwich-type, reduced fat","18987"],["Baked Products","AUSTIN, Cheddar Cheese on Wafer Crackers, sandwich-type","28258"],["Baked Products","AUSTIN, Cheddar Cheese on Wheat Crackers, sandwich-type","18983"],["Baked Products","AUSTIN, Grilled Cheese on Wafer Crackers, sandwich-type","18986"],["Baked Products","AUSTIN, Peanut Butter on Cheese Crackers, sandwich-type","28256"],["Baked Products","AUSTIN, Peanut Butter on Cheese Crackers, sandwich-type, reduced fat","18988"],["Baby Foods","Babyfood, dinner, macaroni and cheese, junior","03090"],["Baby Foods","Babyfood, dinner, macaroni and cheese, strained","03089"],["Baby Foods","Babyfood, dinner, potatoes with cheese and ham, toddler","03304"],["Baby Foods","Babyfood, macaroni and cheese, toddler","03048"],["Baby Foods","Babyfood, ravioli, cheese filled, with tomato sauce","03046"],["Baked Products","Bread, cheese","18972"],["Baked Products","Bread, salvadoran sweet cheese (quesadilla salvadorena)","18953"],["Fast Foods","BURGER KING, CROISSAN\'WICH with Egg and Cheese","21385"],["Fast Foods","BURGER KING, CROISSAN\'WICH with Sausage and Cheese","21384"],["Fast Foods","BURGER KING, CROISSAN\'WICH with Sausage, Egg and Cheese","21383"],["Fast Foods","BURGER KING, DOUBLE WHOPPER, no cheese","21254"],["Fast Foods","BURGER KING, DOUBLE WHOPPER, with cheese","21255"],["Fast Foods","BURGER KING, WHOPPER, no cheese","21252"],["Fast Foods","BURGER KING, WHOPPER, with cheese","21253"],["Meals, Entrees, and Side Dishes","Burrito, bean and cheese, frozen","22918"],["Soups, Sauces, and Gravies","CAMPBELL\'S, Cheddar Cheese Soup, condensed","06038"],["Soups, Sauces, and Gravies","CAMPBELL\'S CHUNKY Soups, Baked Potato with Steak & Cheese Soup","06384"]]'
+data = JSON.parse(tempData);
+console.log(data);
+parseFoodChoices(data);
+
+function parseFoodChoices(choices) {
+    for ( i=0; i<choices.length; i++ ) {
+        $.getJSON("https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20json%20where%20url%3D'https%3A%2F%2Fajax.googleapis.com%2Fajax%2Fservices%2Fsearch%2Fimages%3Fv%3D1.0%26q%3D" + encodeURIComponent("happy bear") + "'&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys", function(data) {
+            console.log(data);
+        });
+    }
+}
+
+
+//https://ajax.googleapis.com/ajax/services/search/images?v=1.0&q=fuzzy%20monkey

@@ -41,15 +41,18 @@
                             <input id="food" type="text" class="validate">
                             <label for="food">Food (cheese, lasagne, etc.)</label>
                         </div>
-                        <div class="input-field col s6">
-                            <input id="food" type="text" class="validate">
-                            <label for="food">Gender</label>
-                        </div>
-                        <div class="col s6">
-                        </div>
+						  <div class="input-field col s6" id="select">
+						    <select id="select">
+						      <option value="" disabled selected>Choose your option</option>
+						      <option value="1">Male</option>
+						      <option value="2">Female</option>
+						      <option value="3">Other</option>
+						    </select>
+						    <label>Gender</label>
+						  </div>
                     </div>
                 </div>
-                <div align="center"><a class="waves-effect waves-light btn" type="submit" value="Submit">Submit</a></div>
+                <div align="center"><a class="waves-effect waves-light btn" onclick="getFood()" type="submit" value="Submit">Submit</a></div>
             </form>	
         </div>
     </div>
@@ -59,9 +62,8 @@
     <div class="container">
       <div class="row">
         <div class="col l6 s12">
-          <center><h5 class="white-text" style="text-align:center;"><i>Title Here</i></h5></center>
-
-
+          <center><h5 class="white-text" style="text-align:center;"><i><b>HEALTHY</b></i></h5></center>
+          <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
                 </div>
                 <div class="col l3 s12">
                     <h5 class="white-text">Settings</h5>
