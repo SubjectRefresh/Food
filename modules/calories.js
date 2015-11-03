@@ -14,22 +14,22 @@ function getNDB(currentSearch, callback) {
 }
  
 function getCalorie(ndb, callback) {
-        request('http://api.nal.usda.gov/ndb/reports/?ndbno=' + ndb + '&type=f&format=json&api_key=UqyGauU4aSQSifon8gyVK5riyMn5ubZinIHBOk5B', function (error, response, body) {
-                var data = JSON.parse(body).report.food.nutrients;
-                var energy = [];
-                var parsedEnergy = [];
-                for ( i=0; i<data.length; i++ ) {
-                        if ( data[i].name == "Energy") {
-                                if ( data[i].unit == "kcal") {
-                                        energy = data[i];
-                                }
+    request('http://api.nal.usda.gov/ndb/reports/?ndbno=' + ndb + '&type=f&format=json&api_key=UqyGauU4aSQSifon8gyVK5riyMn5ubZinIHBOk5B', function (error, response, body) {
+        var data = JSON.parse(body).report.food.nutrients;
+        var energy = [];
+        var parsedEnergy = [];
+        for ( i=0; i<data.length; i++ ) {
+                if ( data[i].name == "Energy") {
+                        if ( data[i].unit == "kcal") {
+                                energy = data[i];
                         }
                 }
-                parsedEnergy['calories'] = [];
-                parsedEnergy['calories']['value'] =  energy.value;
-                parsedEnergy['calories']['measure'] = "100";
-                callback(parsedEnergy);
-        });
+        }
+        parsedEnergy['calories'] = [];
+        parsedEnergy['calories']['value'] =  energy.value;
+        parsedEnergy['calories']['measure'] = "100";
+        callback(parsedEnergy);
+    });
 }
  
 function energyBurnt(age, weight, exercise, time, gender, callback) {
