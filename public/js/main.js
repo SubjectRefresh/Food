@@ -46,10 +46,18 @@ function toggleVis(id) {
 
 toggleVis("food");
 
+var socket = io();
+var gender;
+
+io.on("connection", function(socket) {
+
+});
+
 function getFood(){
     console.log("Get Food was Called");
     toggleVis("food");
-
+    socket.emit("getFoodSuggestions", { food: $("#food").val() });
+    gender = $("#gender").val();
 }
 
 $(document).ready(function() {
