@@ -16,10 +16,4 @@ nav > .container > a.brand-logo > img {
 main {
     flex: 1 0 auto;
   }
-footer{
-    clear: both;
-    position: relative;
-    z-index: 10;
-    height: 3em;
-    margin-top: -3em;
-}
+
