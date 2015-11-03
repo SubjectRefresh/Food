@@ -1,78 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
-  <title>HEALTHY | Made by SubjectRefresh</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
+    <title>HEALTHY | Made by SubjectRefresh</title>
 
-  <!-- CSS  -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="materialize/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <link href="materialize/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <link href="css/subjectrefresh-food.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <!-- CSS  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="materialize/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href="materialize/css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href="css/subjectrefresh-food.css" type="text/css" rel="stylesheet" media="screen,projection" />
 </head>
+
 <body>
-  <nav role="navigation">
-    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo"><img src="img/food.png"/></a>
-      <ul class="right hide-on-med-and-down">
-        <li><a href="#">SOMETHING HERE</a></li>
-      </ul>
+    <nav role="navigation">
+        <div class="nav-wrapper container">
+            <a id="logo-container" href="#" class="brand-logo"><img src="img/food.png" /></a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="#">SOMETHING HERE</a></li>
+            </ul>
 
-      <ul id="nav-mobile" class="side-nav">
-        <li><a href="#">We need to replace this stuff</a></li>
-      </ul>
-      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
-    </div>
-  </nav>
+            <ul id="nav-mobile" class="side-nav">
+                <li><a href="#">We need to replace this stuff</a></li>
+            </ul>
+            <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+        </div>
+    </nav>
 
-      <div class="container"><div id="data" class="row">
-      <form action="">
-  Food: <input type="text" name="food"><br>
-  <a class="waves-effect waves-light btn" type="submit" value="Submit">Submit</a>
-</form></div></div>     
-
-      <div id="loadMore"></div>       
-
-  <footer class="page-footer">
     <div class="container">
-      <div class="row">
-        <div class="col l6 s12">
-          <center><h5 class="white-text" style="text-align:center;"><i>Title Here</i></h5></center>
-
-
+        <div id="data" class="row">
+            <form action="">
+                <div class="row">
+                    <div id="food" style="visibility:hidden">
+                        <div class="input-field col s6">
+                            <input id="food" type="text" class="validate">
+                            <label for="food">Food (cheese, lasagne, etc.)</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input id="food" type="text" class="validate">
+                            <label for="food">Gender</label>
+                        </div>
+                        <div class="col s6">
+                        </div>
+                    </div>
+                </div>
+                <div align="center"><a class="waves-effect waves-light btn" type="submit" value="Submit">Submit</a></div>
+            </form>	
         </div>
-        <div class="col l3 s12">
-          <h5 class="white-text">Settings</h5>
-          <ul>
-            <li><a class="white-text" href="#!">Link 1</a></li>
-            <li><a class="white-text" href="#!">Link 2</a></li>
-            <li><a class="white-text" href="#!">Link 3</a></li>
-            <li><a class="white-text" href="#!">Link 4</a></li>
-          </ul>
-        </div>
-        <div class="col l3 s12">
-          <h5 class="white-text">Connect</h5>
-          <ul>
-            <li><a class="white-text" href="#!">Link 1</a></li>
-            <li><a class="white-text" href="#!">Link 2</a></li>
-            <li><a class="white-text" href="#!">Link 3</a></li>
-            <li><a class="white-text" href="#!">Link 4</a></li>
-          </ul>
-        </div>
-      </div>
     </div>
-    <div class="footer-copyright">
-      <div class="container">
-      Designed &amp; Developed by <a href="http://www.subjectrefresh.info" class="light-red" style="color:#fff;">SubjectRefresh.info</a>
-      </div>
-    </div>
-  </footer>
+
+    <div id="loadMore"></div>
+
+    <footer class="page-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <center>
+                        <h5 class="white-text" style="text-align:center;"><i>Title Here</i></h5></center>
 
 
-  <!--  Scripts-->
-  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <script src="materialize/js/materialize.js"></script>
-  <script src="materialize/js/init.js"></script>
-  <script src="js/main.js"></script>
-  </body>
+                </div>
+                <div class="col l3 s12">
+                    <h5 class="white-text">Settings</h5>
+                    <ul>
+                        <li><a class="white-text" href="#!">Link 1</a></li>
+                        <li><a class="white-text" href="#!">Link 2</a></li>
+                        <li><a class="white-text" href="#!">Link 3</a></li>
+                        <li><a class="white-text" href="#!">Link 4</a></li>
+                    </ul>
+                </div>
+                <div class="col l3 s12">
+                    <h5 class="white-text">Connect</h5>
+                    <ul>
+                        <li><a class="white-text" href="#!">Link 1</a></li>
+                        <li><a class="white-text" href="#!">Link 2</a></li>
+                        <li><a class="white-text" href="#!">Link 3</a></li>
+                        <li><a class="white-text" href="#!">Link 4</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                Designed &amp; Developed by <a href="http://www.subjectrefresh.info" class="light-red" style="color:#fff;">SubjectRefresh.info</a>
+            </div>
+        </div>
+    </footer>
+
+
+    <!--  Scripts-->
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="materialize/js/materialize.js"></script>
+    <script src="materialize/js/init.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
 </html>
+// This is just a sample script. Paste your real code (javascript or HTML) here. if ('this_is'==/an_example/){of_beautifer();}else{var a=b?(c%d):e[f];}

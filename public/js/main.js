@@ -34,3 +34,14 @@ $(window).scroll(function() {
 
 loadMore();
 */
+
+function toggleVis(id) {
+    style = document.getElementById(id).style.visibility;
+    if (style == "") {
+        document.getElementById(id).style.visibility = "hidden";
+    } else {
+        document.getElementById(id).style.visibility = "";
+    }
+}
+
+toggleVis("food");
