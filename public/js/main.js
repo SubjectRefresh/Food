@@ -58,11 +58,4 @@ $(document).ready(function() {
         socket.emit("getFoodSuggestions", { food: $("#food").val() });
         gender = $("#gender").val();
     });
-
-    socket.on("suggestions", function(packet){
-        console.log(packet);
-        for (var i = 0; i < packet.output.lenght; i++){
-            console.log(packet.output[i]);
-        }
-    });
 });
