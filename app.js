@@ -22,6 +22,7 @@ try {
     app.get("/update-git", function(req, res){
         console.log("Reloading git repo");
         updateGit();
+        res.send({message:"OK",code:200})
     });
 
     function run_cmd(cmd, args, cb, end) {
