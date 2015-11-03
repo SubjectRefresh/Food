@@ -1,9 +1,13 @@
 var id = document.getElementById("data");
-
+var j = 0
 function loadMore(){
+	if (j<60){
 for (i=0;i<20;i++){
-	id.innerHTML += '<div class="col s4"><div class="card small"><div class="card-image waves-effect waves-block waves-light"><img class="activator" src="' + "http://lorempixel.com/400/400/?" + i + '"></div><div class="card-content"><span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span><p><a href="#">This is a link</a></p></div><div class="card-reveal"><span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span><p>Here is some more information about this product that is only revealed once clicked on.</p></div></div></div>'
+	id.innerHTML += '<div class="col s4"><div class="card small"><div class="card-image waves-effect waves-block waves-light"><img class="activator" src="' + "http://lorempixel.com/400/400/?" + j + '"></div><div class="card-content"><span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span><p><a href="#">This is a link</a></p></div><div class="card-reveal"><span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span><p>Here is some more information about this product that is only revealed once clicked on.</p></div></div></div>'
+	j+=1
 }
+}
+
 }
 
 function isScrolledIntoView(elem) {
