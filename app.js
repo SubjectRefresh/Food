@@ -39,7 +39,11 @@ function heartbeat() {
                 // Do Code
                 // packet = { food: "foodname", calories: 657 };
                 convert.getCalorie(packet.food, function(calorie) {
-                    socket.emit("recieveCalories", { calorie: calorie });
+                    convert.energyBurnt(49, 250, "running", 60, packet.gender, function(runningSpeed) {
+                        convert.energyBurnt(49, 250, "walking", 60, packet.gender, function(walkingSpeed) {
+                            socket.emit("recieveCalories", { running: calorie / runningSpeed, walking: calorie / walkingSpeed });
+                        });
+                    });
                 });
 
                 // output = { exercise: { running: 1.5, cycling: 4.5, swimming: 6.5 }, alternative: { name: "foodname", url: "http://www.food.recipe" } }

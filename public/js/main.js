@@ -34,6 +34,7 @@ $(document).ready(function() {
     });
 
     socket.on("recieveCalories", function(packet) {
-        console.log(packet.calorie);
+        $(".container").append("<h2>It would take you " + Math.floor(packet.running * 60) + " minutes of running to burn this off meal off!</h2>");
+        $(".container").append("<h2>It would take you " + Math.floor(packet.walking * 60) + " minutes of walking to burn this off meal off!</h2>");
     });
 });
