@@ -49,7 +49,6 @@ toggleVis("food");
 function getFood(){
     console.log("Get Food was Called");
     toggleVis("food");
-
 }
 
 $(document).ready(function() {

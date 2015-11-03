@@ -14,8 +14,8 @@
 </head>
 
 <body>
-    <nav role="navigation">
-        <div class="nav-wrapper container">
+    <nav role="navigation" style="text-align:center;">
+        <div class="nav-wrapper container" style="text-align:center;">
             <a id="logo-container" href="#" class="brand-logo"><img src="img/food.png" /></a>
         </div>
     </nav>
@@ -29,15 +29,15 @@
                             <input id="food" type="text" class="validate">
                             <label for="food">Food (cheese, lasagne, etc.)</label>
                         </div>
-						  <div class="input-field col s6" id="select">
-						    <select id="select">
-						      <option value="" disabled selected>Choose your option</option>
-						      <option value="1">Male</option>
-						      <option value="2">Female</option>
-						      <option value="3">Other</option>
-						    </select>
-						    <label>Gender</label>
-						  </div>
+                        <div class="input-field col s6" id="select">
+                            <select id="gender">
+                              <option value="" disabled selected>Choose your option</option>
+                              <option value="1">Male</option>
+                              <option value="2">Female</option>
+                              <option value="3">Other</option>
+                            </select>
+                          <label>Gender</label>
+                        </div>
                     </div>
                 </div>
                 <div align="center"><a class="waves-effect waves-light btn" onclick="getFood()" type="submit" value="Submit">Submit</a></div>
