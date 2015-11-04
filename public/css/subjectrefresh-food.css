@@ -1,11 +1,15 @@
-footer {
-	position: absolute;
-	width: 100%;
-	bottom: 0;
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
 }
 
 nav {
-	background: #fff !important;
+    background: #fff !important;
 }
 
 nav > .container > a.brand-logo > img {

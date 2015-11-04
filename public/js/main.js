@@ -22,7 +22,8 @@ $(document).ready(function() {
     });
 
     socket.on("recieveCalories", function(packet) {
-        $(".container").append("<h2>It would take you " + Math.floor(packet.running * 60) + " minutes of running to burn this off meal off!</h2>");
-        $(".container").append("<h2>It would take you " + Math.floor(packet.walking * 60) + " minutes of walking to burn this off meal off!</h2>");
+        console.log(packet);
+        $("main > .container").append("<h3>It would take you " + Math.floor(packet.running * 60) + " minutes of running to burn this meal off!</h3>");
+        $("main > .container").append("<h3>It would take you " + Math.floor(packet.walking * 60) + " minutes of walking to burn this meal off!</h3>");
     });
 });
