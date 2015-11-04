@@ -27,11 +27,11 @@
                 <div class="input-field col l3 m6 s12">
                     <select id="gender">
                         <option value="" disabled selected>Gender</option>
-                        <option value="1">Male</option>
-                        <option value="2">Female</option>
-                        <option value="3">Other</option>
+                        <option value="m">Male</option>
+                        <option value="f">Female</option>
+                        <option value="o">Other</option>
                     </select>
-                    <label for="gender">Gender</label>
+                    <label for="gender">Your gender</label>
                 </div>
             </div>
             <div class="row">
@@ -40,10 +40,20 @@
                     </select>
                 </div>
             </div>
+            <div class="row hidden" id="more-options">
+                <div class="input-field col l3 offset-l3 m6 s12">
+                    <input id="age" type="tel" class="validate">
+                    <label for="age">Your age (optional)</label>
+                </div>
+                <div class="input-field col l3 m6 s12">
+                    <input id="weight" type="tel" class="validate">
+                    <label for="weight">Your weight in <b>lb</b> (optional)</label>
+                </div>
+            </div>
             <div class="row center">
                 <a class="waves-effect waves-light btn green lighten-1" id="go1" type="submit" value="Submit">Calculate</a>
             </div>
-            <div class="row center results" style="display:none;">
+            <div class="row center results hidden">
                 <p>To use up the calories in that food you would need to...</p>
             </div>
         </div>

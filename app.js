@@ -24,31 +24,21 @@ function heartbeat() {
 
         io.on("connection", function(socket) {
             socket.on("getFoodSuggestions", function(packet) {
-                // Do Code
-                // packet = { food: "foodname" };
                 convert.getNDB(packet.food, function(outputOne) {
                     io.sockets.connected[socket.id].emit("suggestions", { output: outputOne });
                 });
-
-                // output = { foods: [{ food: "foodname", calories: 657 }, { ... }, { ... }] }
-
             });
 
             socket.on("getFood", function(packet) {
-                // Do Code
-                // packet = { food: "foodname", calories: 657 };
                 convert.getCalorie(packet.food, function(calorie) {
-                    convert.energyBurnt(49, 250, "running", 60, packet.gender, function(runningSpeed) {
-                        convert.energyBurnt(49, 250, "walking", 60, packet.gender, function(walkingSpeed) {
-                            convert.energyBurnt(49, 250, "swimming", 60, packet.gender, function(swimmingSpeed){
-                                socket.emit("receiveCalories", { running: calorie / runningSpeed, walking: calorie / walkingSpeed, swimming: calorie / swimmingSpeed });
+                    convert.energyBurnt(packet.age, packet.weight, "running", 60, packet.gender, function(runningSpeed) {
+                        convert.energyBurnt(packet.age, packet.weight, "walking", 60, packet.gender, function(walkingSpeed) {
+                            convert.energyBurnt(packet.age, packet.weight, "swimming", 60, packet.gender, function(swimmingSpeed) {
                                 io.sockets.connected[socket.id].emit("receiveCalories", { running: calorie / runningSpeed, walking: calorie / walkingSpeed, swimming: calorie / swimmingSpeed });
                             });
                         });
                     });
                 });
-
-                // output = { exercise: { running: 1.5, cycling: 4.5, swimming: 6.5 }, alternative: { name: "foodname", url: "http://www.food.recipe" } }
             });
         });
 

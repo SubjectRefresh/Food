@@ -55,3 +55,7 @@ main > .container > .results .card-action span {
 		border-bottom: 10px solid #66BB6A;
 	}
 }
+
+.hidden {
+	display: none;
+}

@@ -9,14 +9,18 @@ $(document).ready(function() {
     });
 
     socket.on("suggestions", function(packet) {
-        console.log(packet);
         for (i in packet.output) {
+            $("#more-options").fadeIn("slow");
             $("#foods").append('<option value="' + packet.output[i][2] + '">' + packet.output[i][1] + "</option>");
         }
         $("#foods").material_select();
         $("#go1").off("click");
         $("#go1").click(function() {
-            socket.emit("getFood", { food: $("#foods").val(), gender: $("#gender").val() });
+            var age = $("#age").val();
+            var weight = $("#weight").val();
+            if (age == "") age = 42;
+            if (weight == "") weight = 184;
+            socket.emit("getFood", { food: $("#foods").val(), gender: $("#gender").val(), age: age, weight: weight });
         });
     });
 
