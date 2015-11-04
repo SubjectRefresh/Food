@@ -8,7 +8,6 @@ function heartbeat() {
         var express = require("express");
 
         var convert = require("./modules/convert.js");
-        //var calories = require("./modules/calories.js");
 
         var branch = "master";
 
@@ -41,7 +40,9 @@ function heartbeat() {
                 convert.getCalorie(packet.food, function(calorie) {
                     convert.energyBurnt(49, 250, "running", 60, packet.gender, function(runningSpeed) {
                         convert.energyBurnt(49, 250, "walking", 60, packet.gender, function(walkingSpeed) {
-                            socket.emit("recieveCalories", { running: calorie / runningSpeed, walking: calorie / walkingSpeed });
+                            convert.energyBurnt(49, 250, "swimming", 60, packet.gender, function(swimmingSpeed){
+                                socket.emit("receiveCalories", { running: calorie / runningSpeed, walking: calorie / walkingSpeed, swimming: calorie / swimmingSpeed });
+                            });
                         });
                     });
                 });

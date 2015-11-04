@@ -36,12 +36,19 @@ module.exports = {
         	heartrate = 130;
         } else if ( exercise == "running") {
         	heartrate = 170;
+        } else if ( exercise == "swimming"){
+        	heartrate = 220 - parseInt(age);
         }
         if ( gender == "man" ) {
         	var CaloriesBurnt = (age * 0.2017 - weight * 0.09036 + heartrate * 0.6309 - 55.0969) * (time / 4.184);
         } else {
         	var CaloriesBurnt = (age * 0.074 - weight * 0.05741 + heartrate * 0.4472 - 20.4022) * (time / 4.184);
         }
-        callback(CaloriesBurnt);
+        if (CaloriesBurnt == NaN){
+        	CaloriesBurnt = 100;
+        }
+        else {
+        	callback(CaloriesBurnt);
+        }
 	}
 };

@@ -4,7 +4,6 @@ $(document).ready(function() {
     $('#gender').material_select();
 
     $("#go1").click(function() {
-        console.log("Get Food was Called");
         socket.emit("getFoodSuggestions", { food: $("#food").val() });
         gender = $("#gender").val();
     });
@@ -21,9 +20,10 @@ $(document).ready(function() {
         });
     });
 
-    socket.on("recieveCalories", function(packet) {
-        console.log(packet);
-        $("main > .container").append("<div class='row center'><h5>It would take you " + Math.floor(packet.running * 60) + " minutes of running to burn this meal off!</h5></div>");
-        $("main > .container").append("<div class='row center'><h5>It would take you " + Math.floor(packet.walking * 60) + " minutes of walking to burn this meal off!</h5></div>");
+    socket.on("receiveCalories", function(packet) {
+        $("main > .container > .results").append('<div class="col s12 m4"><div class="card blue-grey darken-1 white-text"><div class="card-content"><span class="card-title">Run</span></div><div class="card-action"><span class="time-number">' + Math.floor(packet.running * 60) + '</span> minutes</i></div></div></div>');
+        $("main > .container > .results").append('<div class="col s12 m4"><div class="card blue-grey darken-1 white-text"><div class="card-content"><span class="card-title">Walk</span></div><div class="card-action"><span class="time-number">' + Math.floor(packet.walking * 60) + '</span> minutes</i></div></div></div>');
+        $("main > .container > .results").append('<div class="col s12 m4"><div class="card blue-grey darken-1 white-text"><div class="card-content"><span class="card-title">Swim</span></div><div class="card-action"><span class="time-number">' + Math.floor(packet.swimming * 60) + '</span> minutes</i></div></div></div>');
+        $(".results").slideDown("slow");
     });
 });

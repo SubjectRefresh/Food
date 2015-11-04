@@ -38,6 +38,13 @@ footer.page-footer {
     padding-top: 0;
 }
 
+main > .container > .results .card-action span {
+	padding: 10px 15px;
+	border: 5px solid #66BB6A;
+	border-radius: 50%;
+	margin-right: 5px;
+}
+
 @media (max-width: 478px){
 	header > img {
 		width: 100%;
