@@ -27,7 +27,7 @@ function heartbeat() {
                 // Do Code
                 // packet = { food: "foodname" };
                 convert.getNDB(packet.food, function(outputOne) {
-                    socket.emit("suggestions", { output: outputOne });
+                    io.sockets.connected[socket.id].emit("suggestions", { output: outputOne });
                 });
 
                 // output = { foods: [{ food: "foodname", calories: 657 }, { ... }, { ... }] }
@@ -42,6 +42,7 @@ function heartbeat() {
                         convert.energyBurnt(49, 250, "walking", 60, packet.gender, function(walkingSpeed) {
                             convert.energyBurnt(49, 250, "swimming", 60, packet.gender, function(swimmingSpeed){
                                 socket.emit("receiveCalories", { running: calorie / runningSpeed, walking: calorie / walkingSpeed, swimming: calorie / swimmingSpeed });
+                                io.sockets.connected[socket.id].emit("receiveCalories", { running: calorie / runningSpeed, walking: calorie / walkingSpeed, swimming: calorie / swimmingSpeed });
                             });
                         });
                     });
