@@ -6256,24 +6256,24 @@ button:focus {
 
 label {
   font-size: 0.8rem;
-  color: #29b6f6; }
+  color: #66BB6A; }
 
 /***************************
    Text Inputs + Textarea
 ****************************/
 ::-webkit-input-placeholder {
-  color: #8bd7fa; }
+  color: #addaaf; }
 
 :-moz-placeholder {
   /* Firefox 18- */
-  color: #8bd7fa; }
+  color: #addaaf; }
 
 ::-moz-placeholder {
   /* Firefox 19+ */
-  color: #8bd7fa; }
+  color: #addaaf; }
 
 :-ms-input-placeholder {
-  color: #8bd7fa; }
+  color: #addaaf; }
 
 input[type=text],
 input[type=password],
@@ -6288,7 +6288,7 @@ input[type=search],
 textarea.materialize-textarea {
   background-color: transparent;
   border: none;
-  border-bottom: 1px solid #29b6f6;
+  border-bottom: 1px solid #66BB6A;
   border-radius: 0;
   outline: none;
   height: 3rem;
@@ -6487,7 +6487,7 @@ textarea.materialize-textarea {
   position: relative;
   margin-top: 1rem; }
   .input-field label {
-    color: #29b6f6;
+    color: #66BB6A;
     position: absolute;
     top: 0.8rem;
     left: 0.75rem;
@@ -6941,7 +6941,7 @@ input[type=checkbox]:not(:disabled) ~ .lever:active:after {
     cursor: pointer;
     background-color: transparent;
     border: none;
-    border-bottom: 1px solid #29b6f6;
+    border-bottom: 1px solid #66BB6A;
     outline: none;
     height: 3rem;
     line-height: 3rem;
@@ -8340,3 +8340,5 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
 @media (min-height: 40.125em) {
   .picker--time .picker__box {
     margin-bottom: 5em; } }
+
+/*# sourceMappingURL=materialize.css.map */
