@@ -23,7 +23,7 @@ $(document).ready(function() {
 
     socket.on("recieveCalories", function(packet) {
         console.log(packet);
-        $("main > .container").append("<h3>It would take you " + Math.floor(packet.running * 60) + " minutes of running to burn this meal off!</h3>");
-        $("main > .container").append("<h3>It would take you " + Math.floor(packet.walking * 60) + " minutes of walking to burn this meal off!</h3>");
+        $("main > .container").append("<div class='row center'><h5>It would take you " + Math.floor(packet.running * 60) + " minutes of running to burn this meal off!</h5></div>");
+        $("main > .container").append("<div class='row center'><h5>It would take you " + Math.floor(packet.walking * 60) + " minutes of walking to burn this meal off!</h5></div>");
     });
 });

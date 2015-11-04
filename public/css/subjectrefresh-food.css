@@ -4,6 +4,22 @@ body {
     flex-direction: column;
 }
 
+header {
+	width:100%;
+	height:164px;
+	text-align:center;
+}
+
+header > img {
+	max-height: 200px;
+    max-width: 100%;
+    background: #fff;
+    padding-top: 5px;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    margin-top: 20px;
+}
+
 main {
     flex: 1 0 auto;
 }
@@ -15,4 +31,20 @@ nav {
 nav > .container > a.brand-logo > img {
     max-height: 64px;
     padding: 10px;
+}
+
+footer.page-footer {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+@media (max-width: 478px){
+	header > img {
+		width: 100%;
+		border-top-left-radius: 0;
+		border-top-right-radius: 0;
+		margin-top: 0;
+		padding-top: 10px;
+		border-bottom: 10px solid #66BB6A;
+	}
 }
