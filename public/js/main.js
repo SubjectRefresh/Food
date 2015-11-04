@@ -29,5 +29,10 @@ $(document).ready(function() {
         $("main > .container > .results").append('<div class="col s12 m4"><div class="card blue-grey darken-1 white-text"><div class="card-content"><span class="card-title">Walk</span></div><div class="card-action"><span class="time-number">' + Math.floor(packet.walking * 60) + '</span> minutes</i></div></div></div>');
         $("main > .container > .results").append('<div class="col s12 m4"><div class="card blue-grey darken-1 white-text"><div class="card-content"><span class="card-title">Swim</span></div><div class="card-action"><span class="time-number">' + Math.floor(packet.swimming * 60) + '</span> minutes</i></div></div></div>');
         $(".results").slideDown("slow");
+        $("#go1").fadeOut("slow", function(){
+            $(this).html("Try another").off("click").on("click", function(){
+                window.location.reload(false); 
+            }).fadeIn("slow");
+        });
     });
 });
