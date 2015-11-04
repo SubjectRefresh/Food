@@ -61,9 +61,55 @@ main > .container > .results .card-action span {
 }
 
 .healthy-green {
-	background-color: #8bc349;
+	background: #8bc349;
 }
 
 .healthy-green-text {
 	color: #8bc349;
+}
+
+.healthy-blue {
+	background: #1abdd4;
+}
+
+.healthy-blue-text {
+	color: #1abdd4;
+}
+
+/* label color */
+.input-field label {
+    color: #1abdd4;
+}
+
+
+/* label focus color */
+.input-field input[type=text]:focus + label {
+    color: #8bc349;
+}
+
+
+/* label underline focus color */
+.input-field input[type=text]:focus {
+    border-bottom: 1px solid #1abdd4;
+    box-shadow: 0 1px 0 0 #1abdd4;
+}
+
+
+/* valid color */
+.input-field input[type=text].valid {
+    border-bottom: 1px solid #1abdd4;
+    box-shadow: 0 1px 0 0 #1abdd4;
+}
+
+
+/* invalid color */
+.input-field input[type=text].invalid {
+    border-bottom: 1px solid #DC4E41;
+    box-shadow: 0 1px 0 0 #DC4E41;
+}
+
+
+/* icon prefix focus color */
+.input-field .prefix.active {
+    color: #1abdd4;
 }
