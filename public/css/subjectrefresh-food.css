@@ -59,3 +59,11 @@ main > .container > .results .card-action span {
 .hidden {
 	display: none;
 }
+
+.healthy-green {
+	background-color: #8bc349;
+}
+
+.healthy-green-text {
+	color: #8bc349;
+}
