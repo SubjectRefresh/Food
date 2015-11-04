@@ -31,6 +31,7 @@ module.exports = {
 	},
 
 	energyBurnt: function(age, weight, exercise, time, gender, callback){
+		weight = weight * 0.453592;
 		var type = {
 			"walking":130,
 			"running":170,
