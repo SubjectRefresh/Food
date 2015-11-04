@@ -16,7 +16,7 @@ function heartbeat() {
         app.use(require("express").static('public'));
 
         app.get("/", function(req, res) {
-            console.log("app.js      - " + "[Refresh - Food] Sending homepage".blue);
+            console.log("app.js      - " + "[Refresh - Food] A user connected".blue);
             fs.readFile("pages/index.html", "utf-8", function(err, data) {
                 res.send(data);
             });
@@ -30,6 +30,7 @@ function heartbeat() {
             });
 
             socket.on("getFood", function(packet) {
+                console.log("app.js      - " + "[Refresh - Food] A user requested statistics for ".blue + (packet).green);
                 convert.getCalorie(packet.food, function(calorie) {
                     convert.energyBurnt(packet.age, packet.weight, "running", 60, packet.gender, function(runningSpeed) {
                         convert.energyBurnt(packet.age, packet.weight, "walking", 60, packet.gender, function(walkingSpeed) {
