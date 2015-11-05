@@ -22,6 +22,13 @@ function heartbeat() {
             });
         });
 
+        app.get("/privacy-policy", function(req, res) {
+            console.log("app.js      - " + "[SubjectRefresh] A user requested the privacy policy".blue);
+            fs.readFile("pages/privacy-policy.html", "utf-8", function(err, data) {
+                res.send(data);
+            });
+        });
+
         io.on("connection", function(socket) {
             socket.on("getFoodSuggestions", function(packet) {
                 convert.getNDB(packet.food, function(outputOne) {

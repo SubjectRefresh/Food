@@ -10,7 +10,7 @@ header {
 	text-align:center;
 }
 
-header > img {
+header > a > img {
 	max-height: 200px;
     max-width: 100%;
     background: #fff;
