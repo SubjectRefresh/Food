@@ -23,7 +23,7 @@ function heartbeat() {
         });
 
         app.get("/privacy-policy", function(req, res) {
-            console.log("app.js      - " + "[SubjectRefresh] A user requested the privacy policy".blue);
+            console.log("app.js      - " + "[Refresh - Food] A user requested the privacy policy".blue);
             fs.readFile("pages/privacy-policy.html", "utf-8", function(err, data) {
                 res.send(data);
             });
