@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    var socket = io();
+    socket = io({ path: "/healthy/socket.io" });
     var gender;
     $('#gender').material_select();
 
