@@ -4,7 +4,7 @@ function heartbeat() {
         var fs = require("fs");
         var app = require("express")();
         var http = require("http").Server(app);
-        var io = require("socket.io")(http, { path: '/healthy/socket.io' } );
+        var io = require("socket.io")(http, { path: '/socket.io' } );
         var express = require("express");
 
         var convert = require("./modules/convert.js");
