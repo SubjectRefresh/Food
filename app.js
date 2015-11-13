@@ -16,14 +16,14 @@ function heartbeat() {
         app.use(require("express").static('public'));
 
         app.get("/", function(req, res) {
-            console.log("app.js      - " + "[Refresh - " + "Healthy".green + "] A user connected".blue);
+            console.log("app.js      - " + "[SubjectRefresh - ".green + "Healthy".blue + "]".green + " A user connected".blue);
             fs.readFile("pages/index.html", "utf-8", function(err, data) {
                 res.send(data);
             });
         });
 
         app.get("/privacy-policy", function(req, res) {
-            console.log("app.js      - " + "[Refresh - " + "Healthy".green + "] A user requested the privacy policy".blue);
+            console.log("app.js      - " + "[SubjectRefresh - ".green + "Healthy".blue + "]".green + " A user requested the privacy policy".blue);
             fs.readFile("pages/privacy-policy.html", "utf-8", function(err, data) {
                 res.send(data);
             });
@@ -37,7 +37,7 @@ function heartbeat() {
             });
 
             socket.on("getFood", function(packet) {
-                console.log("app.js      - " + "[Refresh - " + "Healthy".green + "] A user requested statistics for ".blue + (packet).green);
+                console.log("app.js      - " + "[SubjectRefresh - ".green + "Healthy".blue + "]".green + " A user requested statistics for ".blue + (packet.food).green);
                 convert.getCalorie(packet.food, function(calorie) {
                     convert.energyBurnt(packet.age, packet.weight, "running", 60, packet.gender, function(runningSpeed) {
                         convert.energyBurnt(packet.age, packet.weight, "walking", 60, packet.gender, function(walkingSpeed) {
@@ -94,10 +94,10 @@ function heartbeat() {
         }
 
         http.listen(3001, function() {
-            console.log("app.js      - " + "[Refresh - Food] Running at ".green + "http://localhost:3001".blue);
+            console.log("app.js      - " + "[SubjectRefresh - ".green + "Healthy".blue + "] Running at ".green + "http://localhost:3001".blue);
         });
     } catch (e) {
-        console.log("app.js      - " + "[Refresh] FATAL ERROR".red);
+        console.log("app.js      - " + "[SubjectRefresh - ".green + "Healthy".blue + "]".green + " FATAL ERROR".red);
         console.log(e);
         heartbeat();
     }
