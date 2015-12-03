@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    $.getJSON("/get_config", function(config) {
+    $.getJSON("get_config", function(config) {
         console.log(config);
         socket = io(config.socket);
 
