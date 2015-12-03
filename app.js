@@ -4,7 +4,18 @@ function heartbeat() {
         var fs = require("fs");
         var app = require("express")();
         var http = require("http").Server(app);
-        var io = require("socket.io")(http, { path: '/socket.io' } );
+
+        var config = require("./config.js");
+        var io, socket_end_point;
+
+        if (config.production) {
+            io = require("socket.io")(http, { path: '/socket.io' });
+            config.socket = { path: '/socket.io' };
+        } else {
+            io = require("socket.io")(http);
+            config.socket = {};
+        }
+
         var express = require("express");
 
         var convert = require("./modules/convert.js");
@@ -22,6 +33,10 @@ function heartbeat() {
             });
         });
 
+        app.get("/get_config", function(req, res){
+            res.json(config);
+        });
+
         app.get("/privacy-policy", function(req, res) {
             console.log("app.js      - " + "[SubjectRefresh - ".green + "Healthy".blue + "]".green + " A user requested the privacy policy".blue);
             fs.readFile("pages/privacy-policy.html", "utf-8", function(err, data) {
@@ -32,8 +47,8 @@ function heartbeat() {
         io.on("connection", function(socket) {
             socket.on("getFoodSuggestions", function(packet) {
                 console.log("app.js      - " + "[SubjectRefresh - ".green + "Healthy".blue + "]".green + " A user requested suggestions for ".blue + (packet.food).green);
-                convert.getNDB(packet.food, function(outputOne) {
-                    io.sockets.connected[socket.id].emit("suggestions", { output: outputOne });
+                convert.getNDB(packet.food, function(suggestions) {
+                    io.sockets.connected[socket.id].emit("suggestions", { suggestions: suggestions });
                 });
             });
 
@@ -43,7 +58,11 @@ function heartbeat() {
                     convert.energyBurnt(packet.age, packet.weight, "running", 60, packet.gender, function(runningSpeed) {
                         convert.energyBurnt(packet.age, packet.weight, "walking", 60, packet.gender, function(walkingSpeed) {
                             convert.energyBurnt(packet.age, packet.weight, "swimming", 60, packet.gender, function(swimmingSpeed) {
-                                io.sockets.connected[socket.id].emit("receiveCalories", { running: calorie / runningSpeed, walking: calorie / walkingSpeed, swimming: calorie / swimmingSpeed });
+                                io.sockets.connected[socket.id].emit("receiveCalories", {
+                                    running: calorie / runningSpeed,
+                                    walking: calorie / walkingSpeed,
+                                    swimming: calorie / swimmingSpeed
+                                });
                             });
                         });
                     });
@@ -51,44 +70,53 @@ function heartbeat() {
             });
         });
 
-        app.post("/update-git", function(req, res){
+        app.post("/update-git", function(req, res) {
             console.log("Reloading git repo");
             updateGit();
-            res.send({message:"OK",code:200})
+            res.send({
+                message: "OK",
+                code: 200
+            })
         });
 
         function run_cmd(cmd, args, cb, end) {
             var spawn = require('child_process').spawn,
                 child = spawn(cmd, args),
                 me = this;
-            child.stdout.on('data', function (buffer) { cb(me, buffer) });
+            child.stdout.on('data', function(buffer) {
+                cb(me, buffer)
+            });
             child.stdout.on('end', end);
         }
 
-        function gitFetch(callback){
+        function gitFetch(callback) {
             var git_fetch_output = new run_cmd(
-                'git', ['fetch','--all'],
-                function (me, buffer) { me.stdout += buffer.toString() },
-                function(){
+                'git', ['fetch', '--all'],
+                function(me, buffer) {
+                    me.stdout += buffer.toString()
+                },
+                function() {
                     callback(git_fetch_output.stdout);
                 }
             );
         }
 
-        function gitReset(callback){
+        function gitReset(callback) {
             var git_reset_output = new run_cmd(
-                'git', ['reset','--hard','origin/'+branch],
-                function (me, buffer) { me.stdout += buffer.toString() },
-                function(){
+                'git', ['reset', '--hard', 'origin/' + branch],
+                function(me, buffer) {
+                    me.stdout += buffer.toString()
+                },
+                function() {
                     callback(git_reset_output.stdout);
                 }
             );
         }
 
-        function updateGit(){
-            gitFetch(function(output){
+        function updateGit() {
+            gitFetch(function(output) {
                 console.log("app.js      - " + output.green);
-                gitReset(function(output){
+                gitReset(function(output) {
                     console.log("app.js      - " + output.green);
                 });
             });
