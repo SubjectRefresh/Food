@@ -31,6 +31,7 @@ function heartbeat() {
 
         io.on("connection", function(socket) {
             socket.on("getFoodSuggestions", function(packet) {
+                console.log("app.js      - " + "[SubjectRefresh - ".green + "Healthy".blue + "]".green + " A user requested suggestions for ".blue + (packet.food).green);
                 convert.getNDB(packet.food, function(outputOne) {
                     io.sockets.connected[socket.id].emit("suggestions", { output: outputOne });
                 });
