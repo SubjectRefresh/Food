@@ -53,7 +53,6 @@ function heartbeat() {
             });
 
             socket.on("getFood", function(packet) {
-                console.log("app.js      - " + "[SubjectRefresh - ".green + "Healthy".blue + "]".green + " A user requested statistics for ".blue + (packet.food).green);
                 convert.getCalorie(packet.food, function(calorie) {
                     convert.energyBurnt(packet.age, packet.weight, "running", 60, packet.gender, function(runningSpeed) {
                         convert.energyBurnt(packet.age, packet.weight, "walking", 60, packet.gender, function(walkingSpeed) {
