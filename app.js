@@ -10,7 +10,7 @@ function heartbeat() {
 
         if (config.production) {
             io = require("socket.io")(http, { path: '/socket.io' });
-            config.socket = { path: '/refresh/socket.io' };
+            config.socket = { path: '/healthy/socket.io' };
         } else {
             io = require("socket.io")(http);
             config.socket = {};
