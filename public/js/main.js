@@ -18,7 +18,7 @@ $(document).ready(function() {
 
             ga('create', 'UA-69122586-1', 'auto');
             ga('send', 'pageview');
-            ga('_setDomainName', 'food.subjectrefresh.info');
+            ga('_setDomainName', 'subjectrefresh.info');
         }
 
         $("#go1").click(function() {
